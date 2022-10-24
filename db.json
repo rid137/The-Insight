@@ -17,14 +17,6 @@
       "id": 3
     },
     {
-      "title": "Travel Blog",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n      \n            Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n",
-      "category": "Travel",
-      "imageUrl": "http://res.cloudinary.com/dnkhxafkz/image/upload/v1664922977/ln69x6izx6tz9eymsii0.jpg",
-      "date": "10/4/2022",
-      "id": 4
-    },
-    {
       "title": "Sport Blog Updated",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n      \n            Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n",
       "category": "Sports",
@@ -71,6 +63,14 @@
       "imageUrl": "http://res.cloudinary.com/dnkhxafkz/image/upload/v1666483160/cjxkgzjhqg46dorxgoof.jpg",
       "date": "10/23/2022",
       "id": 10
+    },
+    {
+      "title": "Fashion Blog",
+      "description": "The boy we are talking about is coming from abuja tomorrow and we need a meeting place to take place ",
+      "category": "Fashion",
+      "imageUrl": "http://res.cloudinary.com/dnkhxafkz/image/upload/v1666645261/kzc0htm8ifyizvt2gj4v.jpg",
+      "date": "10/24/2022",
+      "id": 11
     }
   ]
 }
