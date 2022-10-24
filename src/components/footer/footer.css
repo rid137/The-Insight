@@ -1,0 +1,192 @@
+:root {
+    --textColor: rgb(163,207,251)
+}
+
+
+.footer {
+    font-family: 'Varela', sans-serif;
+    margin-top: 10px;
+    width: 100%;
+    background: rgb(12, 22, 59);
+    color: #fff;
+    padding: 15px 0;
+}
+
+.firstPart {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+
+.firstColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.firstColumn > h2 {
+    font-size: 2rem;
+    position: relative;
+}
+
+.firstColumn > h2::after {
+    content: '';
+    width: 80%;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    background: #fff;
+    transform: translateX(-50%);
+}
+
+.appAndGoogle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.appAndGoogle > .firstItem > i {
+    font-size: 1.5rem;
+    color: var(--textColor);
+}
+
+.appAndGoogle > .secondItem > h2 {
+    margin-top: -20px;
+    margin-left: -20px;
+    font-size: 1.3rem;
+}
+
+.appAndGoogle > .secondItem > .googleText {
+    font-size: 1.3rem;
+}
+
+.secondColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-top: 50px;
+}
+
+.secondColumn > .sidetwo, 
+.secondColumn > .sideone  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 25px;
+}
+
+.secondColumn > .sideone > ul, 
+.secondColumn > .sidetwo > ul {
+    list-style: none;
+}
+
+.secondColumn > .sidetwo {
+    margin-left: -50px;
+}
+
+.secondColumn > .sideone > ul > li, 
+.secondColumn > .sidetwo > ul > li{
+    margin-top: 1rem;
+    font-size: .8rem;
+    color: var(--textColor);
+}
+
+.secondColumn > .sideone > ul > li:hover, 
+.secondColumn > .sidetwo > ul > li:hover {
+    opacity: .6;
+}
+
+.secondPart {
+    border-top: 1px solid #fff;
+}
+
+.secondPart > p {
+    margin-top: 15px;
+    font-size: .8rem;
+}
+
+.thirdPart {
+    background: rgb(5, 13, 44);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 3.5rem;
+    color: var(--textColor);    
+    margin-top: -18px
+}
+
+.thirdPart > .copyright {
+    font-size: .8rem;
+}
+
+.thirdPart > .social-icons > span {
+    margin: 0 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.thirdPart > .social-icons > span:hover {
+    opacity: .6;
+}
+
+.thirdPart > .social-icons > small {
+    font-size: .9rem;
+}
+
+.thirdPart > .terms > span {
+    margin: 0 10px;
+    font-size: .8rem;
+}
+
+.thirdPart > .terms > span:hover {
+    opacity: .6;
+}
+
+
+@media screen and (max-width: 850px) {
+    .firstPart {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .secondColumn {
+        flex-direction: column;
+    }
+
+    .secondColumn > .sideone > ul, 
+    .secondColumn > .sidetwo > ul  {
+        margin: 20px ;
+        /* margin-right: 10px; */
+    }
+
+    .secondColumn > .sidetwo {
+        margin-left: 1px;
+    }
+
+    .thirdPart {
+        flex-direction: column-reverse;
+        height: 8rem;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .secondColumn > .sidetwo {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 389px) {
+    .secondColumn > .sideone {
+        flex-direction: column;
+    }
+}

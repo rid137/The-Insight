@@ -1,0 +1,60 @@
+.contact-wrapper {
+    background: lightblue;
+    margin-top: -25px;
+    margin-bottom: -25px;
+}
+
+.contact-message {
+    padding-top: 50px;
+    font-size: 1.1rem;
+}
+
+.contact {
+    margin: 30px;
+    font-family: 'Varela', sans-serif;
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactForm > label {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    justify-content: flex-start;
+    display:flex ;
+    color: #fff;
+}
+
+.contactForm > input {
+    color: #fff;
+    margin: 10px 0;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    outline: none;
+    background: none;
+}
+
+.contactForm > textarea {
+    border: none;
+    margin-top: 20px;
+    background: lightblue;
+    resize: none;
+    outline: none;
+    color: #fff;
+}
+
+.submitBtn {
+    width: 150px;
+    align-self: center;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background: rgb(12, 22, 59);
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}

@@ -1,0 +1,18 @@
+.category-card-style {
+    margin: 20px 0px;
+}
+
+.list-style {
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+h4 {
+    padding-top: 10px;
+}
+
+@media screen and (max-width: 770px) {
+    .category-card-style {
+        display: block;
+    }
+}

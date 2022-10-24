@@ -1,0 +1,27 @@
+h1 {
+    text-align: center;
+    overflow: hidden;
+    /* color: red; */
+    padding-bottom: 40px;
+}
+  
+h1:before, h1:after {
+    background: #000;
+    content: '';
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+  
+h1:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+  
+h1:after {
+    right: -0.3em;
+    margin-right: -50%;
+}
+  

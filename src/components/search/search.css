@@ -1,0 +1,11 @@
+ /* Filter Search */
+ .searchForm {
+    margin: auto;
+    padding: 15px;
+    max-width: 550px;
+    align-content: center;
+  }
+  
+  .showFilter {
+    display: none;
+  }

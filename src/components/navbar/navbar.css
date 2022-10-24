@@ -1,0 +1,221 @@
+.navbar {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Varela', sans-serif;
+    background: rgb(14,47,90);
+    width: 100%;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+}
+
+.navbar > .nav-logo {
+    font-weight: 700;
+    font-size: 21px;
+    margin: auto  10px;
+}
+
+.navbar > .nav-items > ul > li {
+    display: inline-block;
+    font-size: 16px;
+    text-decoration: none;
+    margin-left: 20px;
+    position: relative; 
+}
+
+.navbar > .nav-second-items > ul {
+    margin-right: 30px;
+}
+
+.navbar > .nav-second-items > ul > li {
+    display: inline-block;
+    font-size: 16px;
+    text-decoration: none;
+    margin-left: 20px;
+    position: relative;
+}
+
+.navbar > .nav-items > ul > li > .link:hover, 
+.navbar > .nav-second-items > ul > li > .link:hover  {
+    color: #fff;
+}
+
+
+.navbar > .nav-items > ul > li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: all .4s;
+}
+
+.navbar > .nav-items > ul > li:hover::before {
+    width: 100%;
+}
+
+    /* Nav Second Item */
+.navbar > .nav-second-items > ul > li > .link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: all .4s;
+}
+
+.navbar > .nav-second-items > ul > li > .link:hover::before {
+    width: 100%;
+}
+
+.navbar > .nav-toggle {
+    display: none;
+}
+
+.navbar > .nav-items > ul > .text {
+    display: none;
+}
+
+.navbar > .nav-items > .smcLogo {
+    display: none;
+}
+
+
+@media screen and (max-width: 780px) {
+    .navbar > .nav-items > .smcLogo {
+        display: block;
+        cursor: pointer;
+    }
+
+    .navbar > .nav-items > ul {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background: rgba(52, 52, 52, 0.7);
+        z-index: 999;
+        left: 0;
+        width: 100%;
+        height: 70vh;
+        transform: translateX(-100vh);
+        transition: all .45s;
+        padding-top: 20px;
+        padding-left: 0px;
+    }
+
+    .resIcon {
+        display: none;
+    }
+
+    .navbar > .nav-items > ul > .nav-logo {
+        display: none;
+    }
+
+    .navbar > .nav-items > ul > li {
+       margin: 10px 0;
+       transition: all .5s;
+    }
+
+    .navbar > .nav-items > ul > li:hover {
+        letter-spacing: 3px;
+    }
+
+    .navbar > .nav-items > ul > li::before {
+        background: transparent;
+    }
+
+    .navbar > .nav-items.open > ul {
+        transform: translateX(0);
+    }
+
+    .navbar > .nav-items > ul > .text {
+        display: flex;
+        justify-content: space-around;        
+        margin-top: 20px;
+        border-top: 1px solid #fff;       
+    }
+
+    .navbar > .nav-items > ul > .text > ul {
+        margin-top: 15px;
+        list-style: none;
+        margin-right: 30px;
+    }
+
+    .navbar > .nav-items > ul > .text > ul > li {
+        margin-top: 10px;
+        transition: all .5s;
+    }
+
+    .navbar > .nav-items > ul > .text > ul > li:hover {
+        letter-spacing: 3px;
+    }
+
+    .navbar > .nav-items > ul > .text > ul > li > .link:hover {
+        color: #fff;
+    }
+
+    .navbar > .nav-second-items {
+        display: none;
+    }
+
+    .navbar > .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        margin-top: -8px;
+    }
+    
+    .nav-toggle > .bar {
+        position: relative;
+        width: 32px;
+        height: 2px;
+        background: #fff;
+        transition: all 0.45s ease-in-out;
+    }
+
+    .nav-toggle > .bar::before ,
+    .nav-toggle > .bar::after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+        transition: all 0.45s ease-in-out;
+    }
+
+    .nav-toggle > .bar::before {
+        width: 25px;
+        transform: translateY(-8px);
+        right: 0;
+    }
+
+    .nav-toggle > .bar::after {
+        width: 32px;
+        transform: translateY(8px);
+        right: 0;
+    }
+
+    .nav-toggle.open > .bar {
+        transform: translateX(-46px);
+        background: transparent;
+    }
+
+    .nav-toggle.open > .bar::before {
+        width: 32px;
+        transform: rotate(45deg) translate(26px, -26px);
+    }
+
+    .nav-toggle.open > .bar::after {
+        width: 32;
+        transform: rotate(-45deg) translate(26px, 26px);
+    }
+}
+

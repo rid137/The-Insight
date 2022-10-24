@@ -1,0 +1,10 @@
+.about-wrapper {
+    background: lightblue;
+}
+
+.about {
+    background: lightblue;
+    padding: 100px 0px;
+    margin-bottom: -10px;
+    font-family: 'Varela', sans-serif;
+}
