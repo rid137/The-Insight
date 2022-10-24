@@ -17,38 +17,6 @@
       "id": 3
     },
     {
-      "title": "Sport Blog Updated",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n      \n            Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n",
-      "category": "Sports",
-      "imageUrl": "http://res.cloudinary.com/dnkhxafkz/image/upload/v1664923085/kqyuw3ngwlwedjimfw06.jpg",
-      "date": "10/4/2022",
-      "id": 5
-    },
-    {
-      "title": "Fashion",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n      \n            Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n",
-      "category": "Fashion",
-      "imageUrl": "http://res.cloudinary.com/dnkhxafkz/image/upload/v1664923108/ep5njaddu2ddkho6pwrp.jpg",
-      "date": "10/4/2022",
-      "id": 6
-    },
-    {
-      "title": "Second Tech Blog",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n      \n            Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n",
-      "category": "Tech",
-      "imageUrl": "http://res.cloudinary.com/dnkhxafkz/image/upload/v1664923576/ivoxgotgwv1vhpln85j5.jpg",
-      "date": "10/4/2022",
-      "id": 7
-    },
-    {
-      "title": "Fitness Blog",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n      \n            Lorem ipsum dolor sit amet consectetur adipisicing elit. \n            Nobis nulla alias ducimus aperiam atque, velit officia \n            consequuntur ea esse autem veritatis maxime sapiente. \n            Hic, quam doloremque aperiam sapiente doloribus aut?\n",
-      "category": "Fitness",
-      "imageUrl": "http://res.cloudinary.com/dnkhxafkz/image/upload/v1665318247/mkwrgls9ybgobaiaztc0.jpg",
-      "date": "10/9/2022",
-      "id": 8
-    },
-    {
       "title": "Fashion Blog Updated",
       "description": "Emmet is great for that. With it installed in the code editor you are using, you can type “lorem” and then tab and it will expand into a paragraph of Lorem Ipsum placeholder text. But it can do more! You can control how much you get, place it within HTML structure as it expands, and get different bits of it in repeated elements.",
       "category": "Fashion",
