@@ -107,8 +107,8 @@ const Navbar = () => {
           ): 
           (
             <ul>
-              <li ><NavLink className='link' to='/login' onClick={() => setisOpen(!isOpen)}> <i class="fa-solid fa-paper-plane" style={{fontSize: '1.2em', color: 'rgb(81,163,255)'}}></i> Login </NavLink></li>
-              <li ><NavLink className='link' to='/register' onClick={() => setisOpen(!isOpen)}> <i class="fa-regular fa-address-card" style={{fontSize: '1.1em', color: 'rgb(81,163,255)'}}></i>  Register </NavLink></li>
+              <li ><NavLink className='link' to='/login' onClick={() => setisOpen(!isOpen)}> <i class="fa-solid fa-paper-plane" style={{fontSize: '1em', color: 'rgb(81,163,255)'}}></i> Login </NavLink></li>
+              <li ><NavLink className='link' to='/register' onClick={() => setisOpen(!isOpen)}> <i class="fa-regular fa-address-card" style={{fontSize: '1em', color: 'rgb(81,163,255)'}}></i>  Register </NavLink></li>
             </ul>
           )
         }
