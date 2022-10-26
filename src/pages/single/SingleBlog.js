@@ -23,8 +23,8 @@ const Blog = () => {
 
   // Function For Getting Blog Based On Id
   const getSingleBlog = async () => {
-    const response = await axios.get(`http://localhost:5000/blogs/${id}`)
-    const relatedPostData = await axios.get(`http://localhost:5000/blogs?category=${response.data.category}&_start=0&_end=3`) // Fetch Only 3 Related Posts
+    const response = await axios.get(`https://the-insight-mock-api.herokuapp.com/blogs/${id}`)
+    const relatedPostData = await axios.get(`https://the-insight-mock-api.herokuapp.com/blogs?category=${response.data.category}&_start=0&_end=3`) // Fetch Only 3 Related Posts
 
     if(response.status === 200 || relatedPostData.status === 200) {
       setblog(response.data)

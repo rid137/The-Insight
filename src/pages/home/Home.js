@@ -37,7 +37,7 @@ const Home = () => {
 
     // Function For Fetching Blogs
     const loadBlogsdata = async () => {
-        const response = await axios.get('http://localhost:5000/blogs')
+        const response = await axios.get('https://the-insight-mock-api.herokuapp.com/blogs')
         if(response.status === 200) {
             setdata(response.data)
         }
@@ -56,13 +56,13 @@ const Home = () => {
 
     // Fetch Latest Blog
     const fetchLatestBlog = async () => {
-        const totalBlog =  await axios.get('http://localhost:5000/blogs')
+        const totalBlog =  await axios.get('https://the-insight-mock-api.herokuapp.com/blogs')
         const start = totalBlog.data.length - 4 // Fetch Only Four
         const end = totalBlog.data.length
         setlatestBlog(totalBlog.data.slice(start, end))
 
         // Alternatively
-        // const response = await axios.get(`http://localhost:5000/blogs?_start=${start}&_end=${end}`)
+        // const response = await axios.get(`https://the-insight-mock-api.herokuapp.com/blogs?_start=${start}&_end=${end}`)
         // if(response.status === 200) {
         //     setlatestBlog(response.data)  
         // }
@@ -75,7 +75,7 @@ const Home = () => {
     // Delete Blog
     const handleDelete = async (id) => {
         if(window.confirm('Are you sure you want to delete the blog'))  {
-            const response = await axios.delete(`http://localhost:5000/blogs/${id}`)
+            const response = await axios.delete(`https://the-insight-mock-api.herokuapp.com/blogs/${id}`)
             if(response.status === 200) {
                 toast.info('Blog deleted successfully')
                 loadBlogsdata()
@@ -102,14 +102,14 @@ const Home = () => {
             loadBlogsdata()
         }
         setsearchValue(e.target.value)
-        const response = await axios.get(`http://localhost:5000/blogs?q=${searchValue}`)
+        const response = await axios.get(`https://the-insight-mock-api.herokuapp.com/blogs?q=${searchValue}`)
         setdata(response.data)     
     }
     
 
     // For Filtering By Category
     const handleCategory =  async (category) => {
-        const response = await axios.get(`http://localhost:5000/blogs?category=${category}`)
+        const response = await axios.get(`https://the-insight-mock-api.herokuapp.com/blogs?category=${category}`)
         if(response.status === 200) {
             setdata(response.data)
         }
