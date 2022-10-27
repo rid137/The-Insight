@@ -42,7 +42,7 @@ const Write = () => {
 
   // Get Single Blog For Updating 
   const getSingleBlog = async (id) => {
-    const singleBlog = await axios.get(`https://the-insight-mock-api.herokuapp.com/blogs/${id}`)
+    const singleBlog = await axios.get(`http://localhost:5000/blogs/${id}`)
     if (singleBlog.status === 200) {
       setformValue({...singleBlog.data})
     }
@@ -103,12 +103,12 @@ const Write = () => {
       setcategoryErrMsg('Please Select a Category')
     }
 
-    if(title && description && category) {
+    if(title && description && imageUrl && category) {
       const currentDate = getDate()
 
       if(!editMode) {
         const updatedBlogData = {...formValue, date: currentDate}
-        const response = await axios.post('https://the-insight-mock-api.herokuapp.com/blogs', updatedBlogData)
+        const response = await axios.post('http://localhost:5000/blogs', updatedBlogData)
 
         if (response.status === 201) {
           toast.success('Blog Created Successfully')
@@ -118,7 +118,7 @@ const Write = () => {
         }
       }
       else {
-        const response = await axios.put(`https://the-insight-mock-api.herokuapp.com/blogs/${id}`, formValue)
+        const response = await axios.put(`http://localhost:5000/blogs/${id}`, formValue)
 
         if (response.status === 200) {
           toast.success('Blog Updated Successfully')
