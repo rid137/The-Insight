@@ -64,7 +64,7 @@ const Write = () => {
     formData.append('file', file)
     formData.append('upload_preset', 'byjehcvy')
 
-    axios.post('http://api.cloudinary.com/v1_1/dnkhxafkz/image/upload', formData)
+    axios.post('https://api.cloudinary.com/v1_1/dnkhxafkz/image/upload', formData)
     .then((resp) => {
       // console.log(resp)
       toast.info('Image Uploaded Successfully')

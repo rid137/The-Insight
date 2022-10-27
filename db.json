@@ -71,6 +71,14 @@
       "imageUrl": "http://res.cloudinary.com/dnkhxafkz/image/upload/v1666863811/jwn7uenlqwyuhlzwovem.jpg",
       "date": "10/27/2022",
       "id": 15
+    },
+    {
+      "title": "Tech Blog",
+      "description": "The tech  industry is taking over",
+      "category": "Tech",
+      "imageUrl": "http://res.cloudinary.com/dnkhxafkz/image/upload/v1666863981/aif4qbx4xmzgpqnw49md.png",
+      "date": "10/27/2022",
+      "id": 16
     }
   ]
 }
