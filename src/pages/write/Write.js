@@ -66,7 +66,7 @@ const Write = () => {
 
     axios.post('http://api.cloudinary.com/v1_1/dnkhxafkz/image/upload', formData)
     .then((resp) => {
-      console.log(resp)
+      // console.log(resp)
       toast.info('Image Uploaded Successfully')
       setformValue({...formValue, imageUrl: resp.data.url})
     })
