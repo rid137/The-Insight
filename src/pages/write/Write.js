@@ -64,7 +64,7 @@ const Write = () => {
     formData.append('file', file)
     formData.append('upload_preset', 'byjehcvy')
 
-    axios.post('https://api.cloudinary.com/v1_1/dnkhxafkz/image/upload', formData)
+    axios.post('http://api.cloudinary.com/v1_1/dnkhxafkz/image/upload', formData)
     .then((resp) => {
       // console.log(resp)
       toast.info('Image Uploaded Successfully')
@@ -103,7 +103,7 @@ const Write = () => {
       setcategoryErrMsg('Please Select a Category')
     }
 
-    if(title && description && category) {
+    if(title && description && imageUrl && category) {
       const currentDate = getDate()
 
       if(!editMode) {
