@@ -103,7 +103,7 @@ const Write = () => {
       setcategoryErrMsg('Please Select a Category')
     }
 
-    if(title && description && imageUrl && category) {
+    if(title && description && category) {
       const currentDate = getDate()
 
       if(!editMode) {
