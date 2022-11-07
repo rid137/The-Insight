@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { MDBIcon, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardText, MDBCardImage, MDBCardTitle, MDBCardBody, MDBTypography } from 'mdb-react-ui-kit';
 import { useParams, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import moment from 'moment/moment';
 import axios  from 'axios';
 import './singleBlog.css';
 import Badge from '../../components/badge/Badge';
@@ -67,7 +68,7 @@ const Blog = () => {
               icon='calendar-alt'
               size='lg'
             />
-            <strong style={{float: 'left', marginTop: '12px', marginLeft: '2px'}}>{blog && blog.date}</strong>
+            <strong style={{float: 'left', marginTop: '12px', marginLeft: '2px'}}>{blog && moment(blog.date).fromNow()}</strong>
             <Badge styleInfo={styleInfo}>{blog && blog.category}</Badge>
         </div>
 

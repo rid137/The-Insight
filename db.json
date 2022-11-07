@@ -95,6 +95,22 @@
       "imageUrl": "http://res.cloudinary.com/dnkhxafkz/image/upload/v1666864972/qdddji9bpn0ksahmxrli.png",
       "date": "10/27/2022",
       "id": 18
+    },
+    {
+      "title": "Travel",
+      "description": "dfjgnkgbegbiebgiygeghbeghjbfbgjfhbgjhfgjhvjhdsvjhvgjfgvd",
+      "category": "Travel",
+      "imageUrl": "http://res.cloudinary.com/dnkhxafkz/image/upload/v1666865389/nliarvw62eg6drsdg20g.png",
+      "date": "10/27/2022",
+      "id": 19
+    },
+    {
+      "title": "Tech Blog",
+      "description": "utyftdutdddydyryxdutdtdtuytfhtffhgfhgfhgfhgfhfhg",
+      "category": "Tech",
+      "imageUrl": "http://res.cloudinary.com/dnkhxafkz/image/upload/v1666865648/efl6xrzt2voustyjjugi.png",
+      "date": "10/27/2022",
+      "id": 20
     }
   ]
 }

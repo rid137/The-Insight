@@ -116,7 +116,7 @@ const Navbar = () => {
 
             
 
-      <div className={`nav-toggle ${isOpen && 'open'}`} onClick={() => setisOpen(!isOpen)}>
+      <div className={`nav-toggle ${isOpen ? 'open' : ''}`} onClick={() => setisOpen(!isOpen)}>
         <div className="bar"></div>
       </div>
     </div>

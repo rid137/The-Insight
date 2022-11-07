@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardImage, MDBCardText, MDBBtn, MDBIcon, MDBRow } from 'mdb-react-ui-kit'
 import { Link } from 'react-router-dom'
 import Badge from '../badge/Badge';

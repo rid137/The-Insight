@@ -1,15 +1,18 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { MDBTypography } from 'mdb-react-ui-kit'
 import { Container, Row, Col } from 'react-bootstrap'
 import { toast } from "react-toastify";
-import Blogs from "../../components/blogs/Blogs";
 import Search from "../../components/search/Search";
 import Spinner from "../../components/spinner/Spinner";
 import Category from "../../components/category/Category";
 import LatestBlog from "../../components/latestblog/LatestBlog";
 import Pagination from "../../components/pagination/Pagination";
 import Hero from "../../components/hero/Hero";
+import Lazy from "../../components/lazy/Lazy";
+const Blogs = React.lazy(() => 
+import('../../components/blogs/Blogs')
+)
 
 const Home = () => {
     // For All Blogs
@@ -134,7 +137,7 @@ const Home = () => {
 
                 <Col md={9} sm={9}>
                     <Row>                    
-                        {currentPost && currentPost.map((item, index) => <Blogs key={index} {...item} excerpt={excerpt} handleDelete={handleDelete} />)}  
+                        {currentPost && currentPost.map((item, index) => <Suspense fallback= {<Lazy />}> <Blogs key={index} {...item} excerpt={excerpt} handleDelete={handleDelete} /></Suspense>)}
                         <Pagination postPerPage={postPerPage} totalPosts={data.length} paginate={paginate} />
                     </Row>                    
                 </Col>
