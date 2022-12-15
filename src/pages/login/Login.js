@@ -1,17 +1,89 @@
 import './login.css'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { GoogleButton } from 'react-google-button'
+import { UserAuth } from '../../components/context/AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../Firebase-config';
 import pexelbg4 from '../../components/asset/pexelbg4.jpg'
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emsg, setEmsg] = useState([])
+
+  const { googleSignIn, user, setUser } = UserAuth()
+
+  const navigate = useNavigate()
+
+
+  const handleEmailPasswordSignIn = async (e) => {
+        e.preventDefault()
+
+        // try {
+        //     const users = await createUserWithEmailAndPassword(auth, email, password)
+        //     setUser(users.userCredential)
+        //     console.log(users)
+        // }
+        // catch(error) {
+        //     console.log(error.message)
+        // }
+
+        await signInWithEmailAndPassword(auth, email, password)
+
+      .then((userCredential) => {
+        // Signed in 
+        // console.log('ssssss')
+
+        const userDetails = userCredential.user;
+        setUser(userDetails)
+        // console.log(user)
+        // alert('suceesss')
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setEmsg(errorMessage)
+        console.log(errorMessage)
+        // ..
+      });
+    }    
+       
+    
+
+    const handleGoogleSignIn = async () => {
+        try {
+            await googleSignIn()
+        }
+        catch(error) {
+            console.log(error)
+        }
+    }
+
+
+    useEffect(() => {
+      if(user != null) {
+        navigate('/')
+      }
+    }, [user]);
+
+ 
+
   return (
     <div className='login' style={backgroundStyle}>
         <span className="loginTitle">Login</span>
         <form className="loginForm">
             <label htmlFor="">Email</label>
-            <input className='loginInput' type="text" placeholder='Enter your email...' />
+            <input onChange={(e) => setEmail(e.target.value)} className='loginInput' type="text" placeholder='Enter your email...' />
             <label htmlFor="">Password</label>
-            <input className='loginInput' type="password" placeholder='Enter your password...' />
-            <button type='submit' className="loginButton"> Login </button>
+            <input onChange={(e) => setPassword(e.target.value)} className='loginInput' type="password" placeholder='Enter your password...' />
+            {emsg && 
+              <p>{emsg}</p>
+            }
+            {/* {auth.currentUser.email} */}
+            <button onClick={handleEmailPasswordSignIn} type='submit' className="loginButton"> Login </button>
+            <GoogleButton className='googleBtnLogin' onClick={handleGoogleSignIn} />
         </form>
         <button className="loginRegisterButton"> <Link className='link' to='/register'> Register </Link> </button>
     </div>

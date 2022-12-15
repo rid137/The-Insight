@@ -1,0 +1,18 @@
+.moving-bg {
+    height: 300px;
+    width: 100%;
+    /* object-fit: cover; */
+    /* background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 10%, #f6f7f8 20%, #f6f7f8 100%); */
+    background-image: linear-gradient(to right , red, blue);
+    background-size: 200% 100%;
+    animation: movingBg 1s linear infinite;
+}
+
+@keyframes movingBg {
+    0% {
+        background-position: 50% 0;
+    }
+    100% {
+        background-position: -150% 0;
+    }
+}

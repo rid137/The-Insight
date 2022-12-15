@@ -65,7 +65,11 @@
     border: none;
     border-bottom: 1px solid lightgray;
     outline: none;
-    background: none;
+    background: transparent;
+}
+
+::placeholder {
+    color: #fff;
 }
 
 .settingsSubmit {
@@ -76,5 +80,6 @@
     color: white;
     background: teal;
     padding: 10px;
-    margin-top: 20px;cursor: pointer;
+    margin-top: 20px;
+    cursor: pointer;
 }
