@@ -1,5 +1,5 @@
 import { MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardImage, MDBCardText } from 'mdb-react-ui-kit'
-import './lazy.css'
+import './lazyBlog.css'
 
 const Lazy = () => {
   return (

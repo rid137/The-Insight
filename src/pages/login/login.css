@@ -19,7 +19,7 @@
 }
 
 .loginTitle {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .loginForm {
@@ -33,11 +33,18 @@
 }
 
 .loginInput {
-    padding: 10px;
+    padding: 5px;
     background: #fff;
     border: none;
     outline: none;
     border-radius: 2px;
+    font-size: 1.1rem;
+}
+
+.googleBtnLogin {
+    margin-top: 20px;
+    /* padding: 10px; */
+    /* height: 20px; */
 }
 
 .loginButton {
@@ -47,7 +54,13 @@
     border: none;
     color: #fff;
     border-radius: 10px;
-    padding: 10px;
+    padding: 5px;
+    transition: all .2s;
+
+}
+
+.loginButton:hover {
+    opacity: .8;
 }
 
 .loginRegisterButton {

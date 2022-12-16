@@ -1,13 +1,67 @@
 import './navbar.css'
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../Firebase-config';
+import { useState, useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import pexelpassport from '../asset/pexelpassport.jpg'
 import ReactTooltip from "react-tooltip";
 
 
-const Navbar = () => {
+const Navbar = ({setShow, profileDetails}) => {
+  // FOR GETTING PROFILE INFOMATION
+  const [profileInfo, setProfileInfo] = useState([])
+
+  // FOR OPEN AND CLOSE NAVBAR
   const [isOpen, setisOpen] = useState(false)
-  const [user] = useState(false)
+
+  // FROM AUTHCONTEXT
+  const { user, logOut } = UserAuth()
+
+  // FOR GETTING PROFILE CREATION STATUS
+  const getInfo = localStorage.getItem("info")
+
+  const navigate = useNavigate()
+
+  // FOR FIRESTORE DATABASE
+  const collectionRef = collection(db, 'profile')
+
+  // FOR PROFILE MODAL FORM
+  const handleShow = () => setShow(true);
+
+  // FOR LOGGING OUT
+  const handleSignOut = async () => {
+    try {
+      if(window.confirm('Are you sure you want to log out?')) {
+        await logOut()
+      }
+    }
+    catch(error) {
+        console.log(error)
+    }
+  }
+
+  // FOR GETTING PROFILE INFO
+  useEffect(() => {
+    const getNotes = async () => {
+      const data = await getDocs(collectionRef)
+      // if(data) {
+        setProfileInfo(data.docs.map((doc) => ({...doc.data()})))
+      // }
+      // profileDetails.length === 1 &&  profileDetails.map((item) => setEachProfileDetail({item}))
+
+    }
+
+    getNotes()
+  },[]);
+  
+  // FOR REDIRECTING AFTER LOGOUT
+  useEffect(() => {
+    if(user === null) {
+      navigate('/')
+    }
+  }, [user]);
+
 
   return (
     <div className='navbar'>
@@ -44,25 +98,24 @@ const Navbar = () => {
           <li ><NavLink className='link' to='/about' onClick={() => setisOpen(!isOpen)}> <i className="fa fa-info-circle resIcon" aria-hidden="true" style={navItemStyle}></i> About </NavLink></li>
           <li ><NavLink className='link' to='/contact' onClick={() => setisOpen(!isOpen)}> <i className="fa fa-phone-square resIcon" aria-hidden="true" style={navItemStyle}></i> Contact </NavLink></li>
           <li ><NavLink className='link' to='/addBlog' onClick={() => setisOpen(!isOpen)}> <i className="fa fa-pencil-square resIcon" aria-hidden="true" style={navItemStyle}></i> Write </NavLink></li>
-          {/* {
-            !user &&
-            (
-              <>
-                <li ><NavLink className='link' to='/contact' onClick={() => setisOpen(!isOpen)}> Login </NavLink></li>
-                <li ><NavLink className='link' to='/contact' onClick={() => setisOpen(!isOpen)}> Register </NavLink></li>
-              </>
-            ) 
-          } */}
+          
 
           <div className='text'>
             <ul>
               <li ><NavLink className='link' to='#' onClick={() => setisOpen(!isOpen)}> Help </NavLink></li>
-              <li ><NavLink className='link' to='/profile' onClick={() => setisOpen(!isOpen)}> Profile </NavLink></li>
+              <li onClick={handleShow} ><NavLink className='link' to={user && getInfo && profileInfo.length > 0 ? '/Profile' : '/ProfileForm'} onClick={() => setisOpen(!isOpen)}> Profile </NavLink></li>
               <li ><NavLink className='link' to='#' onClick={() => setisOpen(!isOpen)}> Info </NavLink></li>
             </ul>
             <ul>
-                <li ><NavLink className='link' to='/login' onClick={() => setisOpen(!isOpen)}> Login </NavLink></li>
-                <li ><NavLink className='link' to='/register' onClick={() => setisOpen(!isOpen)}> Register </NavLink></li>
+            {console.log(profileDetails)}
+            {console.log(profileInfo)}
+                { user ?
+                    <li onClick={handleSignOut} ><NavLink className='link' to='/' onClick={() => setisOpen(!isOpen)}> Log Out </NavLink></li> :
+                  <>
+                    <li ><NavLink className='link' to='/login' onClick={() => setisOpen(!isOpen)}> Login </NavLink></li>
+                    <li ><NavLink className='link' to='/register' onClick={() => setisOpen(!isOpen)}> Register </NavLink></li>
+                  </>
+                }
             </ul>
           </div>
 
@@ -90,14 +143,14 @@ const Navbar = () => {
               </li>
 
               <li >
-                <NavLink className='link' to='/'> <i class="fa-solid fa-circle-question" style={{fontSize: '1.3rem'}} data-tip data-for="help"></i> </NavLink>
+                <NavLink className='link' to='/' onClick={handleSignOut}> <i class="fa-solid fa-circle-question" style={{fontSize: '1.3rem'}} data-tip data-for="help"></i> </NavLink>
                 <ReactTooltip id="help" place="top" effect="solid">
-                  Help
+                  Log Out
                 </ReactTooltip>
               </li>
 
               <li>
-                <NavLink to='/profile' ><img className='tpImg' src={pexelpassport} alt="profile" style={{marginTop: '-8px', width: '30px', height: '30px', borderRadius: '50%', objectFit: 'cover'}} data-tip data-for="profile" /></NavLink>
+                <NavLink to={user && getInfo && profileInfo.length > 0 ? '/Profile' : '/ProfileForm'} onClick={handleShow} ><img className='tpImg' src={pexelpassport} alt="profile" style={{marginTop: '-8px', width: '30px', height: '30px', borderRadius: '50%', objectFit: 'cover'}} data-tip data-for="profile" /></NavLink>
                 <ReactTooltip id="profile" place="top" effect="solid">
                   Profile
                 </ReactTooltip>
