@@ -12,6 +12,8 @@ const Navbar = ({setShow, profileDetails}) => {
   // FOR GETTING PROFILE INFOMATION
   const [profileInfo, setProfileInfo] = useState([])
 
+  const [hasCreateProfile, setHasCreateProfile] = useState(false)
+
   // FOR OPEN AND CLOSE NAVBAR
   const [isOpen, setisOpen] = useState(false)
 
@@ -46,7 +48,10 @@ const Navbar = ({setShow, profileDetails}) => {
     const getNotes = async () => {
       const data = await getDocs(collectionRef)
       // if(data) {
-        setProfileInfo(data.docs.map((doc) => ({...doc.data()})))
+        setProfileInfo(data.docs.map((doc) => ({...doc.data(), id:doc.id})))
+        // if(profileInfo.length < 0) {
+        //   setHasCreateProfile(true)
+        // }
       // }
       // profileDetails.length === 1 &&  profileDetails.map((item) => setEachProfileDetail({item}))
 
@@ -103,11 +108,11 @@ const Navbar = ({setShow, profileDetails}) => {
           <div className='text'>
             <ul>
               <li ><NavLink className='link' to='#' onClick={() => setisOpen(!isOpen)}> Help </NavLink></li>
-              <li onClick={handleShow} ><NavLink className='link' to={user && getInfo && profileInfo.length > 0 ? '/Profile' : '/ProfileForm'} onClick={() => setisOpen(!isOpen)}> Profile </NavLink></li>
-              <li ><NavLink className='link' to='#' onClick={() => setisOpen(!isOpen)}> Info </NavLink></li>
+              <li ><NavLink className='link' to='/Profile' onClick={() => setisOpen(!isOpen)}> Profile </NavLink></li>
+              <li onClick={handleShow}><NavLink className='link' to='/ProfileForm' onClick={() => setisOpen(!isOpen)}> Start </NavLink></li>
             </ul>
             <ul>
-            {console.log(profileDetails)}
+            {/* {console.log(profileDetails)} */}
             {console.log(profileInfo)}
                 { user ?
                     <li onClick={handleSignOut} ><NavLink className='link' to='/' onClick={() => setisOpen(!isOpen)}> Log Out </NavLink></li> :
@@ -128,8 +133,8 @@ const Navbar = ({setShow, profileDetails}) => {
           user ? 
           (
             <ul>
-              <li >
-                <NavLink className='link' to='/'> <i class="fa-regular fa-lightbulb" style={{fontSize: '1.3rem'}} data-tip data-for="start"></i> </NavLink>
+              <li onClick={handleShow}>
+                <NavLink className='link' to='/ProfileForm'> <i class="fa-regular fa-lightbulb" style={{fontSize: '1.3rem'}} data-tip data-for="start"></i> </NavLink>
                 <ReactTooltip id="start" place="top" effect="solid">
                   Getting Started
                 </ReactTooltip>
@@ -150,7 +155,7 @@ const Navbar = ({setShow, profileDetails}) => {
               </li>
 
               <li>
-                <NavLink to={user && getInfo && profileInfo.length > 0 ? '/Profile' : '/ProfileForm'} onClick={handleShow} ><img className='tpImg' src={pexelpassport} alt="profile" style={{marginTop: '-8px', width: '30px', height: '30px', borderRadius: '50%', objectFit: 'cover'}} data-tip data-for="profile" /></NavLink>
+                <NavLink to='/Profile' ><img className='tpImg' src={pexelpassport} alt="profile" style={{marginTop: '-8px', width: '30px', height: '30px', borderRadius: '50%', objectFit: 'cover'}} data-tip data-for="profile" /></NavLink>
                 <ReactTooltip id="profile" place="top" effect="solid">
                   Profile
                 </ReactTooltip>

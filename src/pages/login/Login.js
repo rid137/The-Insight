@@ -18,37 +18,20 @@ const Login = () => {
 
 
   const handleEmailPasswordSignIn = async (e) => {
-        e.preventDefault()
+    e.preventDefault()
 
-        // try {
-        //     const users = await createUserWithEmailAndPassword(auth, email, password)
-        //     setUser(users.userCredential)
-        //     console.log(users)
-        // }
-        // catch(error) {
-        //     console.log(error.message)
-        // }
+    await signInWithEmailAndPassword(auth, email, password)
 
-        await signInWithEmailAndPassword(auth, email, password)
-
-      .then((userCredential) => {
-        // Signed in 
-        // console.log('ssssss')
-
-        const userDetails = userCredential.user;
-        setUser(userDetails)
-        // console.log(user)
-        // alert('suceesss')
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setEmsg(errorMessage)
-        console.log(errorMessage)
-        // ..
-      });
-    }    
+    .then((userCredential) => {
+      const userDetails = userCredential.user;
+      setUser(userDetails)
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      setEmsg(errorMessage)
+      console.log(errorMessage)
+    });
+  }    
        
     
 

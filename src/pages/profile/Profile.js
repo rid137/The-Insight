@@ -8,6 +8,7 @@ import pexelpassport from '../../components/asset/pexelpassport.jpg'
 import pencils from '../../components/asset/pencils.jpg'
 
 const Profile = ({profileDetails, setProfileDetails}) => {
+  const [red, setRed] = useState([])
 
   const collectionRef = collection(db, 'profile')
 
@@ -19,7 +20,7 @@ const Profile = ({profileDetails, setProfileDetails}) => {
   useEffect(() => {
     const getNotes = async () => {
       const data = await getDocs(collectionRef)
-        setProfileDetails(data.docs.map((doc) => ({...doc.data()})))
+        setProfileDetails(data.docs.map((doc) => ({...doc.data(), id:doc.id})))
     }
 
     getNotes()
@@ -35,12 +36,10 @@ const Profile = ({profileDetails, setProfileDetails}) => {
               <span className="settingsUpdateTitle">Update Your Account</span>
               <span className="settingsDeleteTitle">Delete Account</span>
           </div>
-          {
-                
+          {    
             profileDetails.map((item) => (
-
           <>
-          { user.uid === item.id && <form  className="settingsForm">
+          { user && user.uid === item.uid && item.id !== null && <form  className="settingsForm" key={item.id}>
               <label>Profile Picture</label>
               <div className="settingsPP">
                   <img src={pexelpassport} alt="profile" />
