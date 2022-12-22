@@ -9,87 +9,60 @@ import './register.css'
 
 
 const Register = () => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [confirmPassword, setConfirmPassword] = useState("")
-    const [firebaseErrmsg, setFirebaseErrmsg] = useState([])
-    const [confirmPasswordErrMsg, setConfirmPasswordErrMsg] = useState(false)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [firebaseErrmsg, setFirebaseErrmsg] = useState([])
+  const [confirmPasswordErrMsg, setConfirmPasswordErrMsg] = useState(false)
 
-    const { googleSignIn, user, setUser } = UserAuth()
+  const { googleSignIn, user, setUser } = UserAuth()
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
 
-    const handleEmailPasswordSignUp = async (e) => {
-        e.preventDefault()
-        if(password !== confirmPassword) {
-          setConfirmPasswordErrMsg(true)
-          return;
-        }
-
-
-      await createUserWithEmailAndPassword(auth, email, password)
-
-      .then((userCredential) => {
-        // Signed in 
-        // console.log('ssssss')
-
-        const userDetails = userCredential.user;
-        setUser(userDetails)
-        // console.log(user)
-        // alert('suceesss')
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setFirebaseErrmsg(errorMessage)
-        console.log(errorMessage)
-        // ..
-      });
-    }    
-       
-    
-
-    const handleGoogleSignIn = async () => {
-        try {
-            await googleSignIn()
-        }
-        catch(error) {
-            console.log(error)
-        }
+  // TO HANDLE EMAIL AND PASSWORD SIGN UP
+  const handleEmailPasswordSignUp = async (e) => {
+    e.preventDefault()
+    if(password !== confirmPassword) {
+      setConfirmPasswordErrMsg(true)
+      return;
     }
 
+    await createUserWithEmailAndPassword(auth, email, password)
 
-    useEffect(() => {
-      if(user != null) {
-        navigate('/')
-      }
-    }, [user]);
+    .then((userCredential) => {
 
-
+      const userDetails = userCredential.user;
+      setUser(userDetails)
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setFirebaseErrmsg(errorMessage)
+      console.log(errorMessage)
+      // ..
+    });
+  }    
+       
     
+  // TO HANDLE GOOGLE SIGN IN
+  const handleGoogleSignIn = async () => {
+    try {
+        await googleSignIn()
+    }
+    catch(error) {
+        console.log(error)
+    }
+  }
 
-  
-      
+
+  // FOR NAVIGATING TO HOME PAGE AFTER REGISTERING
+  useEffect(() => {
+    if(user != null) {
+      navigate('/')
+    }
+  }, [user]);
 
 
-
-
-
-
-
-
-
- 
-        // try{
-        //     const userCredential = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
-        //     console.log(userCredential)
-        //     // setSeeUser(user)
-        // }
-        // catch(error) {
-        //     console.log(error)
-        // }
-    // }
 
   return (
     <div className='register' style={backgroundStyle}>
@@ -119,10 +92,10 @@ const Register = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
             />
             {
-              confirmPasswordErrMsg && <p style={{maxWidth: '300px', color: 'red'}}>Password does not match</p>
+              confirmPasswordErrMsg && <p style={{maxWidth: '280px', color: 'red'}}>Password does not match</p>
             }
             {firebaseErrmsg && 
-              <p style={{maxWidth: '300px', color: 'red'}}>{firebaseErrmsg}</p>
+              <p style={{maxWidth: '280px', color: 'red'}}>{firebaseErrmsg}</p>
             }
             <button onClick={handleEmailPasswordSignUp} className="registerButton">Register</button>
             <GoogleButton className='googleBtn' onClick={handleGoogleSignIn} />

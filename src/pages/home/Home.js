@@ -10,9 +10,11 @@ import LatestBlog from "../../components/latestblog/LatestBlog";
 import Pagination from "../../components/pagination/Pagination";
 import LazyHero from "../../components/lazyHero/LazyHero";
 import LazyBlog from "../../components/lazyBlog/LazyBlog";
+
 const Hero = React.lazy(() => 
 import('../../components/hero/Hero')
 )
+
 const Blogs = React.lazy(() => 
 import('../../components/blogs/Blogs')
 )

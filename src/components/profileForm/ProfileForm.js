@@ -9,39 +9,43 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-function ProfileForm({show, setShow, setInfo}) {
-    const [data, setData] = useState({})
+function ProfileForm({show, setShow}) {
+  // FOR STORING ALL INPUTS
+  const [data, setData] = useState({});
 
+  // FROM AUTHCONTEXT
+  const { user } = UserAuth();
 
-    const { user } = UserAuth()
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  // FOR PROFILE MODAL FORM
+  const handleClose = () => setShow(false);
 
-    const handleClose = () => setShow(false);
+  // FOR FIRESTORE DATABASE
+  const collectionRef = collection(db, 'profile');
 
-    const collectionRef = collection(db, 'profile')
+  // TO HANDLE INPUTS
+  const handleInputs = (e) => {
+    const newInput = { [e.target.name]: e.target.value};
 
-    const handleSave = async (e) => {
-        e.preventDefault()
-        
-       await addDoc(collectionRef, {
-        fullname: data.fullname,
-        nationality: data.nationality,
-        phoneNumber: data.phoneNumber,
-        email: user.email,
-        id: user.uid,
-        // id: user.uid
-       });
-       navigate('/profile')
-       localStorage.setItem("info", true)
-       setInfo(true)
-    }
+    setData({...data, ...newInput})
+  }
 
-    const handleInputs = (e) => {
-        const newInput = { [e.target.name]: e.target.value};
+  // FOR SAVING PROFILE INFO
+  const handleSave = async (e) => {
+    e.preventDefault()
+    
+    await addDoc(collectionRef, {
+    fullname: data.fullname,
+    nationality: data.nationality,
+    phoneNumber: data.phoneNumber,
+    email: user.email,
+    uid: user.uid,
+    });
+    navigate('/profile')
+  }
 
-        setData({...data, ...newInput})
-    }
+    
 
   
   return (
@@ -105,5 +109,4 @@ function ProfileForm({show, setShow, setInfo}) {
   );
 }
 
-// render(<ProfileForm />);
 export default ProfileForm;
